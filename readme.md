@@ -9,13 +9,13 @@
     Storm部分和web部分分开(在webapp分支)，二者相连的地方就是mysql数据库。Storm往进写，web往出读并且进行展示。Storm部分就是编写拓扑和相应的Bolt、Spout。Web则是注意前后端之间数据的传输和交互。实时展示报警信息使用websocket主动推送。Echarts折线图使用ajax传输数据，使用echarts.js设置图表即可。
   实验环境
   ----
-*IDEA  2019.2.4（ULTIMATE）
-*JDK 1.8
-*Mysql 1.8
-*Tomcat7
-*Spring 4.1.1.RELEASE
-*Jackson 2.3.3
-*Hbase 1.2.2
-*Kafka 2.1.1
-*Storm 1.1.1
-*Windos10
+* IDEA  2019.2.4（ULTIMATE）<br>
+* JDK 1.8<br>
+*Mysql 1.8<br>
+*Tomcat7<br>
+*Spring 4.1.1.RELEASE<br>
+*Jackson 2.3.3<br>
+*Hbase 1.2.2<br>
+*Kafka 2.1.1<br>
+*Storm 1.1.1<br>
+*Windos10<br>
