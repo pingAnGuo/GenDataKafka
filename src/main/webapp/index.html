@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="static/js/html5shiv.js"></script>
+    <script type="text/javascript" src="static/js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="static/js/h-ui/css/H-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="static/js/h-ui.admin/css/H-ui.admin.css" />
+    <link rel="stylesheet" type="text/css" href="static/js/Hui-iconfont/1.0.8/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="static/js/h-ui.admin/skin/default/skin.css" id="skin" />
+    <link rel="stylesheet" type="text/css" href="static/js/h-ui.admin/css/style.css" />
+    <!--[if IE 6]>
+    <script type="text/javascript" src="static/js/DD_belatedPNG_0.0.8a-min.js"></script>
+    <script>DD_belatedPNG.fix('*');</script>
+    <![endif]-->
+    <title>报警信息界面展示</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+</head>
+<body>
+<header class="navbar-wrapper">
+    <div class="navbar navbar-fixed-top">
+        <div class="container-fluid cl">
+            <a class="logo navbar-logo f-l mr-10 hidden-xs" href="index.html">报警信息界面展示</a>
+        </div>
+    </div>
+</header>
+<aside class="Hui-aside">
+    <div class="menu_dropdown bk_2">
+        <dl id="menu-article">
+            <dt><i class="Hui-iconfont">&#xe616;</i> 报警信息<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dd>
+                <ul>
+                    <li><a data-href="displayWarn.html" data-title="报警信息" href="javascript:void(0)">报警信息</a></li>
+                    <li><a data-href="lineChart.html" data-title="图标展示" href="javascript:void(0)">图标展示</a></li>
+                </ul>
+            </dd>
+        </dl>
+    </div>
+</aside>
+
+<section class="Hui-article-box">
+    <div id="Hui-tabNav" class="Hui-tabNav hidden-xs">
+        <div class="Hui-tabNav-wp">
+            <ul id="min_title_list" class="acrossTab cl">
+                <li class="active">
+                    <span title="报警信息" data-href="displayWarn.html">报警信息</span>
+                    <em></em>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="iframe_box" class="Hui-article">
+        <div class="show_iframe">
+            <div style="display:none" class="loading"></div>
+            <iframe scrolling="yes" frameborder="0" src="displayWarn.html"></iframe>
+        </div>
+    </div>
+</section>
+
+
+<!--_footer 作为公共模版分离出去-->
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<!--<script type="text/javascript" src="static/js/jquery/1.9.1/jquery.min.js"></script>-->
+<!--<script type="text/javascript" src="static/js/jquery.min.js"></script>-->
+<script type="text/javascript" src="static/js/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="static/js/h-ui/js/H-ui.min.js"></script>
+<script type="text/javascript" src="static/js/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="static/js/jquery.contextmenu/jquery.contextmenu.r2.js"></script>
+<script type="text/javascript">
+    $(function(){
+
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ECharts折线图的绘制</title>
+    <!-- 引入 ECharts 文件 -->
+    <script src="static/js/echarts.js"></script>
+<!--    <script type="text/javascript" src="static/js/jquery.min.js"></script>-->
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+</head>
+<body>
+<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+<div id="main" style="width: 600px;height:400px;"></div>
+<script type="text/javascript">
+    var xtime = [];
+    var ydata = [];
+
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+    var option = {
+        tooltip: {
+            trigger: 'axis',
+            position: function (pt) {
+                return [pt[0], '10%'];
+            }
+        },
+        title: {
+            left: 'center',
+            text: '报警折线图',
+        },
+        legend: {//图例，每条折线或者项对应的示例
+            left: 'right',
+            data:['报警数量']
+        },
+        xAxis : [ {
+            type : 'category',//从0刻度开始
+            boundaryGap : false,
+            data : xtime,
+        //name : "个10分钟"
+
+        }],
+
+    yAxis : [ {
+        name : '数量                       ', //Y轴提示
+        type : 'value',
+    } ],
+        series : [ {
+        "name" : "报警数量",
+        "type" : "line",
+        "data" : ydata,
+        "smooth" : true, //主题--线条平滑
+        "symbol" : 'emptycircle', //设置折线图中表示每个坐标点的符号；emptycircle：空心圆；emptyrect：空心矩形；circle：实心圆；emptydiamond：菱形
+        itemStyle: {
+            normal: {
+                color: 'rgb(255, 70, 131)'
+            }
+        },
+        areaStyle: {
+            normal: {
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                    offset: 0,
+                    color: 'rgb(255, 158, 68)'
+                }, {
+                    offset: 1,
+                    color: 'rgb(255, 70, 131)'
+                }])
+            }
+        }
+    }
+    ]};
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+    getData()
+    function getData() {
+        // alert("begin !!")
+        var now = new Date();//2:+19:+58
+        var currentTime = [now.getHours(), now.getMinutes(), now.getSeconds()].join(': ');
+        alert(currentTime)
+        // now =myDate.toLocaleTimeString();    //获取当前时间
+        // myDate.toLocaleString( )
+
+        $.ajax({
+            type : "post",
+            async : false, //同步执行
+            url : "./Echarts/getdata",
+            dataType : "json", //返回数据形式为json
+            data :
+                {js_time : currentTime},
+            success : function(result) {
+                $.each(result,function(index,item){
+                    xtime.push(item.x_time);
+                    ydata.push(item.y_count)
+                });
+                var option = myChart.getOption();
+                option.xAxis[0].data = xtime
+                option.series[0].data = ydata
+                myChart.setOption(option);
+            },
+            error : function(result)
+            {
+                alert("图表请求数据失败!"+currenttime);
+                console.info("result________"+result)
+            }
+        });
+    }
+</script>
+</body>
+</html>
